@@ -4,7 +4,8 @@
 		"ignore": [
 			"node_modules",
 			".expo",
-			"*.json"
+			"*.json",
+			".tamagui"
 		]
 	},
 	"formatter": {
