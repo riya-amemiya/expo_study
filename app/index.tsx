@@ -3,7 +3,6 @@ import { Alert, ScrollView } from "react-native";
 import { division, multiplication } from "umt";
 
 import { WattageInput } from "@/components/WattageInput";
-import { Picker } from "@react-native-picker/picker";
 
 import { ButtonContainer } from "@/components/styled/ButtonContainer";
 import { ButtonText } from "@/components/styled/ButtonText";
@@ -28,8 +27,15 @@ export default function MicrowaveTimerConverter() {
     [],
   );
 
-  const minutes = Array.from({ length: 11 }, (_, i) => i.toString());
-  const seconds = Array.from({ length: 60 }, (_, i) => i.toString());
+  const minuteItems = Array.from({ length: 11 }, (_, i) => ({
+    label: `${i} 分`,
+    value: i.toString(),
+  }));
+
+  const secondItems = Array.from({ length: 60 }, (_, i) => ({
+    label: `${i} 秒`,
+    value: i.toString(),
+  }));
 
   const calculateTimes = () => {
     const baseW = Number.parseInt(baseWattage, 10);
@@ -92,21 +98,15 @@ export default function MicrowaveTimerConverter() {
         />
         <PickerContainer>
           <StyledPicker
-            selectedValue={baseMinutes}
-            onValueChange={(itemValue: string) => setBaseMinutes(itemValue)}
-          >
-            {minutes.map((m) => (
-              <Picker.Item key={m} label={`${m} 分`} value={m} />
-            ))}
-          </StyledPicker>
+            value={baseMinutes}
+            onValueChange={setBaseMinutes}
+            items={minuteItems}
+          />
           <StyledPicker
-            selectedValue={baseSeconds}
-            onValueChange={(itemValue: string) => setBaseSeconds(itemValue)}
-          >
-            {seconds.map((s) => (
-              <Picker.Item key={s} label={`${s} 秒`} value={s} />
-            ))}
-          </StyledPicker>
+            value={baseSeconds}
+            onValueChange={setBaseSeconds}
+            items={secondItems}
+          />
         </PickerContainer>
         <ButtonContainer>
           <StyledButton onPress={calculateTimes}>
