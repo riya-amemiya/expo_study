@@ -1,11 +1,13 @@
 import { useState } from "react";
+
 import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+  ManualInput,
+  PresetButton,
+  PresetButtonsContainer,
+  PresetButtonText,
+  WattageContainer,
+  WattageLabel,
+} from "@/components/styled/WattageInputStyles";
 
 interface WattageInputProps {
   label: string;
@@ -35,52 +37,26 @@ export function WattageInput({
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
-      <View style={styles.presetButtonsContainer}>
+    <WattageContainer>
+      <WattageLabel>{label}</WattageLabel>
+      <PresetButtonsContainer>
         {presetWattages.map((wattage) => (
-          <TouchableOpacity
+          <PresetButton
             key={wattage}
-            style={[
-              styles.presetButton,
-              value === wattage &&
-                !isManualInput &&
-                styles.presetButtonSelected,
-            ]}
+            selected={value === wattage && !isManualInput}
             onPress={() => handlePresetPress(wattage)}
           >
-            <Text
-              style={[
-                styles.presetButtonText,
-                value === wattage &&
-                  !isManualInput &&
-                  styles.presetButtonTextSelected,
-              ]}
-            >
+            <PresetButtonText selected={value === wattage && !isManualInput}>
               {wattage}W
-            </Text>
-          </TouchableOpacity>
+            </PresetButtonText>
+          </PresetButton>
         ))}
-        <TouchableOpacity
-          style={[
-            styles.presetButton,
-            isManualInput && styles.presetButtonSelected,
-          ]}
-          onPress={handleManualInputPress}
-        >
-          <Text
-            style={[
-              styles.presetButtonText,
-              isManualInput && styles.presetButtonTextSelected,
-            ]}
-          >
-            手入力
-          </Text>
-        </TouchableOpacity>
-      </View>
+        <PresetButton selected={isManualInput} onPress={handleManualInputPress}>
+          <PresetButtonText selected={isManualInput}>手入力</PresetButtonText>
+        </PresetButton>
+      </PresetButtonsContainer>
       {isManualInput && (
-        <TextInput
-          style={styles.manualInput}
+        <ManualInput
           keyboardType="numeric"
           placeholder="ワット数を入力"
           value={value}
@@ -89,50 +65,6 @@ export function WattageInput({
           autoComplete="off"
         />
       )}
-    </View>
+    </WattageContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 15,
-  },
-  label: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 5,
-  },
-  presetButtonsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
-    marginBottom: 10,
-  },
-  presetButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    width: 80,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    alignItems: "center",
-  },
-  presetButtonSelected: {
-    backgroundColor: "#007bff",
-    borderColor: "#007bff",
-  },
-  presetButtonText: {
-    fontSize: 14,
-    color: "#333",
-  },
-  presetButtonTextSelected: {
-    color: "#fff",
-  },
-  manualInput: {
-    height: 40,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  },
-});
