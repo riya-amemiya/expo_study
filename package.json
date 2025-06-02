@@ -17,6 +17,7 @@
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
+    "@tamagui/config": "^1.126.13",
     "expo": "~53.0.5",
     "expo-blur": "~14.1.4",
     "expo-constants": "~17.1.5",
@@ -41,6 +42,7 @@
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
     "styled-components": "^6.1.18",
+    "tamagui": "^1.126.13",
     "umt": "^2.4.0"
   },
   "devDependencies": {
