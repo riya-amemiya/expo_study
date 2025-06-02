@@ -8,14 +8,14 @@ import { ButtonContainer } from "@/components/styled/ButtonContainer";
 import { ButtonText } from "@/components/styled/ButtonText";
 import { Container } from "@/components/styled/Container";
 import { InputSection } from "@/components/styled/InputSection";
-import {
-  PickerContainer,
-  StyledPicker,
-} from "@/components/styled/PickerStyles";
 import { ResultSection } from "@/components/styled/ResultSection";
 import { ResultText } from "@/components/styled/ResultText";
 import { SectionTitle } from "@/components/styled/SectionTitle";
 import { StyledButton } from "@/components/styled/StyledButton";
+import {
+  StyledSelectContainer,
+  StyledSlider,
+} from "@/components/styled/StyledSlider";
 import { Title } from "@/components/styled/Title";
 
 // biome-ignore lint/style/noDefaultExport: <explanation>
@@ -96,18 +96,18 @@ export default function MicrowaveTimerConverter() {
           value={baseWattage}
           onChangeText={setBaseWattage}
         />
-        <PickerContainer>
-          <StyledPicker
+        <StyledSelectContainer>
+          <StyledSlider
             value={baseMinutes}
             onValueChange={setBaseMinutes}
             items={minuteItems}
           />
-          <StyledPicker
+          <StyledSlider
             value={baseSeconds}
             onValueChange={setBaseSeconds}
             items={secondItems}
           />
-        </PickerContainer>
+        </StyledSelectContainer>
         <ButtonContainer>
           <StyledButton onPress={calculateTimes}>
             <ButtonText>計算</ButtonText>

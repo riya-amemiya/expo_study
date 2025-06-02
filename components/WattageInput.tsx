@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import {
   ManualInput,
   PresetButton,
@@ -8,6 +6,7 @@ import {
   WattageContainer,
   WattageLabel,
 } from "@/components/styled/WattageInputStyles";
+import { useState } from "react";
 
 interface WattageInputProps {
   label: string;
@@ -15,7 +14,7 @@ interface WattageInputProps {
   onChangeText: (text: string) => void;
 }
 
-const presetWattages = ["500", "600", "700", "800", "1000"];
+const presetWattages = ["500", "600", "700", "800", "1000", "1200", "1500"];
 
 export function WattageInput({
   label,
@@ -34,6 +33,12 @@ export function WattageInput({
   const handleManualInputPress = () => {
     setIsManualInput(true);
     onChangeText("");
+  };
+
+  const handleManualInputChange = (text: string) => {
+    // 数値のみ許可
+    const numericText = text.replace(/[^0-9]/g, "");
+    onChangeText(numericText);
   };
 
   return (
@@ -57,10 +62,10 @@ export function WattageInput({
       </PresetButtonsContainer>
       {isManualInput && (
         <ManualInput
-          keyboardType="numeric"
+          keyboardType="number-pad"
           placeholder="ワット数を入力"
           value={value}
-          onChangeText={onChangeText}
+          onChangeText={handleManualInputChange}
           textContentType="none"
           autoComplete="off"
         />

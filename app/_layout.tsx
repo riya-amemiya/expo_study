@@ -1,8 +1,6 @@
-import { defaultConfig } from "@tamagui/config/v4";
+import { config } from "@/tamagui.config";
 import { Stack } from "expo-router";
-import { createTamagui, TamaguiProvider } from "tamagui";
-
-const config = createTamagui(defaultConfig);
+import { TamaguiProvider } from "tamagui";
 
 // biome-ignore lint/style/noDefaultExport: <explanation>
 export default function RootLayout() {
