@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
+import { rem } from "@/utils/responsive";
 
 export const SectionTitle = styled.Text`
-  font-size: 1.5rem;
+  font-size: ${rem(1.5)}px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: ${rem(1)}px;
   color: #555;
 `;
