@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Alert, ScrollView } from "react-native";
-import { division, multiplication } from "umt";
+import { addition, division, multiplication } from "umt";
 
 import { WattageInput } from "@/components/WattageInput";
 
@@ -54,24 +54,23 @@ export default function MicrowaveTimerConverter() {
       return;
     }
 
-    const baseTotalSeconds = multiplication(baseM, 60) + baseS;
+    const baseTotalSeconds = addition(multiplication(baseM, 60), baseS);
     if (baseTotalSeconds <= 0) {
       Alert.alert("入力エラー", "基準時間は0より大きくしてください。");
       setResults([]);
       return;
     }
 
-    const wattagesToCalculate = Array.from(
-      { length: 11 },
-      (_, i) => 500 + i * 100,
+    const wattagesToCalculate = Array.from({ length: 11 }, (_, i) =>
+      addition(500, multiplication(i, 100)),
     );
     const calculatedResults = wattagesToCalculate.map((targetW) => {
       const targetTotalSeconds = division(
         multiplication(baseW, baseTotalSeconds),
         targetW,
       );
-      const minutes = Math.floor(targetTotalSeconds / 60);
-      const seconds = Math.round(targetTotalSeconds % 60);
+      const minutes = Math.floor(division(targetTotalSeconds, 60));
+      const seconds = Math.round(division(targetTotalSeconds, 60, false)[1]);
       return { wattage: targetW, time: `${minutes}分${seconds}秒` };
     });
 
