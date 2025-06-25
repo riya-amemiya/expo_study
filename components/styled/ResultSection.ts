@@ -1,5 +1,6 @@
 import { View } from "react-native";
 import styled from "styled-components/native";
+
 import { rem } from "@/utils/responsive";
 
 export const ResultSection = styled(View)`

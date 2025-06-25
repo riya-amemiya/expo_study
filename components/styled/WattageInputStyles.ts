@@ -1,6 +1,7 @@
-import { rem } from "@/utils/responsive";
 import { TextInput } from "react-native";
 import styled from "styled-components/native";
+
+import { rem } from "@/utils/responsive";
 
 export const WattageContainer = styled.View`
   margin-bottom: ${rem(0.9375)}px;

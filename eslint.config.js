@@ -10,6 +10,23 @@ module.exports = defineConfig([
   {
     rules: {
       "import/no-named-as-default": "off",
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
+          alphabetize: {
+            order: "asc",
+          },
+          "newlines-between": "always",
+        },
+      ],
     },
   },
 ]);

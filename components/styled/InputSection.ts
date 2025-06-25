@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+
 import { rem } from "@/utils/responsive";
 
 export const InputSection = styled.View`

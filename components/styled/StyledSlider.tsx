@@ -1,5 +1,6 @@
-import { rem } from "@/utils/responsive";
 import { SizableText, Slider, XStack, YStack, type XStackProps } from "tamagui";
+
+import { rem } from "@/utils/responsive";
 
 export const StyledSelectContainer = ({ children, ...props }: XStackProps) => (
   <XStack gap={rem(1.25)} mb={rem(1)} bg="$background" {...props}>

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   ManualInput,
   PresetButton,
@@ -6,7 +8,6 @@ import {
   WattageContainer,
   WattageLabel,
 } from "@/components/styled/WattageInputStyles";
-import { useState } from "react";
 
 interface WattageInputProps {
   label: string;

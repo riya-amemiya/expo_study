@@ -3,7 +3,6 @@ import { Alert, ScrollView } from "react-native";
 import { addition, division, multiplication } from "umt";
 
 import { WattageInput } from "@/components/WattageInput";
-
 import { ButtonContainer } from "@/components/styled/ButtonContainer";
 import { ButtonText } from "@/components/styled/ButtonText";
 import { Container } from "@/components/styled/Container";
