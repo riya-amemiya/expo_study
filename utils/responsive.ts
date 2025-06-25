@@ -1,6 +1,6 @@
-import { Dimensions } from 'react-native';
+import { Dimensions } from "react-native";
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get("window");
 
 const BASE_REM = screenWidth * 0.035;
 

@@ -18,7 +18,7 @@ import {
 } from "@/components/styled/StyledSlider";
 import { Title } from "@/components/styled/Title";
 
-// biome-ignore lint/style/noDefaultExport: <explanation>
+// biome-ignore lint/style/noDefaultExport: ignore
 export default function MicrowaveTimerConverter() {
   const [baseWattage, setBaseWattage] = useState("600");
   const [baseMinutes, setBaseMinutes] = useState("3");

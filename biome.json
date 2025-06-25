@@ -1,123 +1,135 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
-	"files": {
-		"ignore": [
-			"node_modules",
-			".expo",
-			"*.json",
-			".tamagui"
-		]
-	},
-	"formatter": {
-		"enabled": true,
-		"formatWithErrors": false,
-		"indentStyle": "space",
-		"lineWidth": 80
-	},
-	"javascript": {
-		"globals": [
-			"describe",
-			"beforeEach",
-			"it",
-			"expect",
-			"test",
-			"beforeAll",
-			"afterEach",
-			"afterAll",
-			"Bun"
-		]
-	},
-	"json": {
-		"formatter": {
-			"enabled": false
-		}
-	},
-	"linter": {
-		"enabled": true,
-		"ignore": [
-			"eslint.config.mjs"
-		],
-		"rules": {
-			"a11y": {
-				"noSvgWithoutTitle": "warn"
-			},
-			"complexity": {
-				"noExcessiveCognitiveComplexity": "off",
-				"noUselessStringConcat": "error",
-				"noUselessUndefinedInitialization": "error",
-				"noVoid": "error",
-				"useDateNow": "error",
-				"useSimplifiedLogicExpression": "error"
-			},
-			"correctness": {
-				"noConstantMathMinMaxClamp": "error",
-				"noInvalidNewBuiltin": "error",
-				"noNewSymbol": "error",
-				"noNodejsModules": "error",
-				"noUndeclaredVariables": "warn",
-				"noUnusedFunctionParameters": "error",
-				"noUnusedImports": "error",
-				"noUnusedPrivateClassMembers": "error",
-				"noUnusedVariables": "warn",
-				"useExhaustiveDependencies": "warn",
-				"useHookAtTopLevel": "error"
-			},
-			"nursery": {
-				"noDuplicateElseIf": "error",
-				"noDynamicNamespaceImportAccess": "error",
-				"noEnum": "error",
-				"noExportedImports": "error",
-				"noIrregularWhitespace": "error",
-				"noSubstr": "error",
-				"noUselessEscapeInRegex": "error",
-				"useAdjacentOverloadSignatures": "error",
-				"useTrimStartEnd": "error"
-			},
-			"recommended": true,
-			"style": {
-				"noDefaultExport": "error",
-				"noDoneCallback": "error",
-				"noImplicitBoolean": "warn",
-				"noNamespace": "error",
-				"noNamespaceImport": "error",
-				"noNegationElse": "error",
-				"noParameterAssign": "warn",
-				"noParameterProperties": "off",
-				"noShoutyConstants": "warn",
-				"noYodaExpression": "error",
-				"useBlockStatements": "error",
-				"useCollapsedElseIf": "error",
-				"useConsistentArrayType": "error",
-				"useConsistentBuiltinInstantiation": "error",
-				"useDefaultSwitchClause": "error",
-				"useExplicitLengthCheck": "error",
-				"useForOf": "error",
-				"useFragmentSyntax": "error",
-				"useNamingConvention": {
-					"level": "off",
-					"options": {
-						"enumMemberCase": "CONSTANT_CASE",
-						"strictCase": true
-					}
-				},
-				"useNodeAssertStrict": "error",
-				"useShorthandArrayType": "error",
-				"useShorthandAssign": "error",
-				"useSingleCaseStatement": "error",
-				"useThrowNewError": "error",
-				"useThrowOnlyError": "error"
-			},
-			"suspicious": {
-				"noEmptyBlockStatements": "error",
-				"noEvolvingTypes": "error",
-				"noMisplacedAssertion": "error",
-				"noSkippedTests": "error",
-				"useErrorMessage": "error",
-				"useNumberToFixedDigitsArgument": "error"
-			}
-		}
-	},
-	"organizeImports": {
-		"enabled": false
-	}
+  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  },
+  "files": {
+    "includes": ["**", "!**/node_modules/**", "!**/.expo/**", "!**/.tamagui/**"]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "it",
+      "expect",
+      "test",
+      "beforeAll",
+      "afterEach",
+      "afterAll",
+      "Bun"
+    ]
+  },
+  "json": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "includes": ["**", "!**/eslint.config.mjs"],
+    "rules": {
+      "a11y": {
+        "noSvgWithoutTitle": "warn"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off",
+        "noUselessEscapeInRegex": "error",
+        "noUselessStringConcat": "error",
+        "noUselessUndefinedInitialization": "error",
+        "noVoid": "error",
+        "useDateNow": "error",
+        "useSimplifiedLogicExpression": "error"
+      },
+      "correctness": {
+        "noConstantMathMinMaxClamp": "error",
+        "noInvalidBuiltinInstantiation": "error",
+        "noNodejsModules": "error",
+        "noSwitchDeclarations": "error",
+        "noUndeclaredVariables": "warn",
+        "noUnusedFunctionParameters": "error",
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedVariables": "warn",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error"
+      },
+      "nursery": {},
+      "performance": {
+        "noDynamicNamespaceImportAccess": "error",
+        "noNamespaceImport": "error"
+      },
+      "recommended": true,
+      "style": {
+        "noDefaultExport": "error",
+        "noDoneCallback": "error",
+        "noEnum": "error",
+        "noExportedImports": "error",
+        "noImplicitBoolean": "warn",
+        "noInferrableTypes": "error",
+        "noNamespace": "error",
+        "noNegationElse": "error",
+        "noParameterAssign": "warn",
+        "noParameterProperties": "off",
+        "noShoutyConstants": "warn",
+        "noSubstr": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
+        "useAsConstAssertion": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useConsistentArrayType": "error",
+        "useConsistentBuiltinInstantiation": "error",
+        "useDefaultParameterLast": "error",
+        "useDefaultSwitchClause": "error",
+        "useEnumInitializers": "error",
+        "useExplicitLengthCheck": "error",
+        "useForOf": "error",
+        "useFragmentSyntax": "error",
+        "useNamingConvention": {
+          "level": "off",
+          "options": {
+            "conventions": [
+              {
+                "formats": ["CONSTANT_CASE"],
+                "selector": {
+                  "kind": "enumMember"
+                }
+              }
+            ],
+            "strictCase": true
+          }
+        },
+        "useNodeAssertStrict": "error",
+        "useNumberNamespace": "error",
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "error",
+        "useSingleVarDeclarator": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error"
+      },
+      "suspicious": {
+        "noDuplicateElseIf": "error",
+        "noEmptyBlockStatements": "error",
+        "noEvolvingTypes": "error",
+        "noIrregularWhitespace": "error",
+        "noMisplacedAssertion": "error",
+        "noSkippedTests": "error",
+        "useAdjacentOverloadSignatures": "error",
+        "useErrorMessage": "error",
+        "useNumberToFixedDigitsArgument": "error"
+      }
+    }
+  }
 }
